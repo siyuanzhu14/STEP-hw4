@@ -1,4 +1,5 @@
-def dft(graph, start, visited=None):#depth first traversal
+#depth first traversal
+def dft(graph, start, visited=None):
     if visited is None:
         visited = []
     if start not in visited:
@@ -8,11 +9,11 @@ def dft(graph, start, visited=None):#depth first traversal
         dft(graph, next, visited)
     return visited
 
-
-def bft(graph, start):#breadth first traversal
+#breadth first traversal
+def bft(graph, start):
     visited = [start]
     q = []
-    q.insert(0,start)
+    q.insert(0,start) #q is a queue, so the inserted vertex is in the first position
     while q:
         next = q.pop()
         for next in set(graph[next]) - set(visited):
@@ -61,9 +62,7 @@ def find_path(graph, start, end, path=None, visited=None):
     
     for vertex in tempSet:
         if vertex not in path:
-            extended_path = find_path(graph,vertex, 
-                                           end, 
-                                           path, visited)
+            extended_path = find_path(graph,vertex, end, path, visited)
             if extended_path: 
                 return extended_path
     return None
@@ -88,7 +87,7 @@ for link in linksSet:
     else:
         links[link[0]].append(link[1])
     tempKey = link[0]
-#links shows all the vertices that a vertex points to
+#links is the dictionary showing all the vertices that a vertex points to
 
 with open('nicknames.txt', 'r') as f:
     nicknames = dict(link.strip().split() for link in f.readlines())
