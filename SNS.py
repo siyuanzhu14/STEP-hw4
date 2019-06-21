@@ -100,8 +100,8 @@ bft_list = [nicknames[index] for index in bft_list]
 print('all the accounts in breadth first method:\n', bft_list, '\n')
 
 dft_list = dft(links,'0')
-bft_list = [nicknames[index] for index in dft_list]
-print('all the accounts in depth first method:\n', bft_list, '\n')
+dft_list = [nicknames[index] for index in dft_list]
+print('all the accounts in depth first method:\n', dft_list, '\n')
 
 #a path between jacob and craig(0)
 path = [nicknames[index] for index in find_path(links, inv_nicknames['jacob'], inv_nicknames['craig'])]
