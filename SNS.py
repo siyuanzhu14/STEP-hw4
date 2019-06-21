@@ -95,6 +95,12 @@ with open('nicknames.txt', 'r') as f:
 #reverse the nicknames dictionary so that can search index from name
 inv_nicknames = {name: index for index, name in nicknames.items()}
 
+#the indices of the acccounts that following no one.
+No_following = nicknames.keys()-links.keys()
+#update them to the links
+for index in No_following:
+    links.update({index:[]})
+
 bft_list = bft(links,'0')
 bft_list = [nicknames[index] for index in bft_list]
 print('all the accounts in breadth first method:\n', bft_list, '\n')
